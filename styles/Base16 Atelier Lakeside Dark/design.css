@@ -1,0 +1,591 @@
+/**
+ * Base16 Atelier Lakeside Dark
+ * @author: Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/lakeside/)
+ */
+
+/* @group Basic Body Structure */
+
+* {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	word-wrap: break-word;
+}
+
+body {
+	color: #ebf8ff;
+	height: 100%;
+	z-index: 100;
+	font-size: 12px;
+	overflow: hidden;
+	overflow-y: visible;
+	background-color: #161b1d;
+}
+
+#body_home {
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	z-index: 100;
+
+	position: absolute;
+	opacity: 0; /* Set by JavaScript */
+	-webkit-transition: opacity 0.8s linear;
+}
+
+body[viewtype=channel] div#body_home {
+	max-height: 96.5%;
+}
+
+.line {
+	padding: 2px 5px 2px 5px;
+	clear: both;
+}
+
+.sender {
+	cursor: pointer;
+	font-weight: 700;
+}
+
+body[dir=rtl] .sender {
+	display: inline-block;
+}
+
+/* @end */
+
+/* @group Misc */
+
+#loading_screen {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -11px;
+	margin-left: -150px;
+	width: 300px;
+	height: 21px;
+	font-size: 18px;
+	background: #1f292e;
+	border: 1px solid #516d7b;
+	border-radius: 5px;
+	padding: 5px;
+	padding-left: 10px;
+	opacity: 1; /* Set by JavaScript */
+	-webkit-transition: opacity 0.8s linear;
+	text-align: center;
+}
+
+.encryptionLock img {
+	float: right;
+	margin: 0;
+	padding: 0;
+	height: 11px;
+	margin-top: 2px;
+	padding-left: 10px;
+}
+
+/* @end */
+
+/* @group Time */
+
+.time {
+	color: #5a7b8c;
+	white-space: nowrap;
+}
+
+body[dir=rtl] .time {
+	padding-left: 0.4em;
+	display: inline-block;
+}
+
+/* @end */
+
+/* @group Links */
+
+a {
+	color: #257fad;
+	border-color: #257fad;
+	text-decoration: none;
+	border-bottom: dotted 1px;
+}
+
+a:hover {
+	color: #5d5db1;
+	border-color: #5d5db1;
+}
+
+/* @end */
+
+/* @group Topic Bar */
+
+#topic_bar {
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 400;
+	opacity: 0; /* Set by JavaScript */
+	color: #7ea2b4;
+	position: fixed;
+	padding: 2px 0.5em 3px;
+	background-color: rgba(81, 109, 123, 0.95);
+	-webkit-transition: opacity 0.8s linear;
+	-webkit-font-smoothing: subpixel-antialiased;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+/* Topic bar hover additions contributed with permission from the project:
+ * https://github.com/hbang/Simplified-Light-Modifications
+ */
+
+#topic_bar:hover {
+	overflow: visible;
+	white-space: normal;
+}
+
+/* @end */
+
+/* @group Images */
+
+.inlineImageCell {
+	overflow: auto;
+	display: block;
+	margin-top: 5px;
+	margin-bottom: 2px;
+}
+
+.inlineImageCell .image {
+	display: inline-block;
+	float: left;
+	margin-right: 15px;
+	margin-left: 10px;
+	min-width: 40px;
+	max-width: 90%;
+}
+
+.inlineImageCell .closeButton {
+	cursor: pointer;
+	border-radius: 5px;
+	border: 2px solid #516d7b;
+	color: #7ea2b4;
+	display: inline-block;
+	line-height: 14px;
+	font-size: 15px;
+	font-family: "Helvetica Neue" !important;
+	text-indent: 7px;
+	width: 16px;
+	height: 16px;
+	float: left;
+	padding-right: 7px;
+	padding-left: 0px;
+}
+
+html[systemversion^="10.9"] .inlineImageCell .closeButton,
+html[systemversion^="10.8"] .inlineImageCell .closeButton {
+	line-height: 13px;
+}
+
+/* @end */
+
+/* @group Separating History */
+
+div[id=mark] {
+	clear: both;
+	position: relative;
+	z-index: 295;
+	margin-top: -1px;
+	border-bottom: 1px dashed;
+	border-color: #d22d72;
+	-webkit-transition: 0.2s linear;
+}
+
+.historic {
+	opacity: 0.5;
+}
+
+/* @end */
+
+/* @group NOTICE / CTCP / WALLOPS */
+
+.line[ltype*=ctcp],
+.line[ltype*=notice],
+.line[ltype*=wallops] {
+	color: #8a8a0f;
+	z-index: 191;
+	background-color: rgba(138, 138, 15, 0.1);
+	position: relative;
+}
+
+/* @end */
+
+/* @group Selected User */
+
+.line[ltype*=privmsg]:not(.selectedUser),
+.line[ltype*=action]:not(.selectedUser) {
+	transition: background-color 0.5s;
+}
+
+.line.selectedUser[highlight=false] {
+	transition: background-color 0.5s;
+	z-index: 190;
+	position: relative;
+	background-color: rgba(147, 92, 37, 0.1);
+}
+
+/* @end */
+
+/* @group PRIVMSG */
+
+.line[ltype*=privmsg][highlight=true],
+.line[ltype*=action][highlight=true] {
+	z-index: 191;
+	position: relative;
+	font-weight: normal;
+	background-color: rgba(210, 45, 114, 0.1);
+}
+
+div[ltype*=privmsg] .sender {
+	white-space: pre-wrap;
+}
+
+/* @end */
+
+/* @group ACTION */
+
+div[ltype*=action] .sender:before {
+	content: "•";
+}
+
+body[dir=ltr] div[ltype*=action] .sender:before {
+	margin-right: 0.4em;
+}
+
+body[dir=rtl] div[ltype*=action] .sender:before {
+	margin-left: 0.4em;
+}
+
+div[ltype*=action] .sender:after {
+	content: "";
+}
+
+/* @end */
+
+/* @group DEBUG / INVITE */
+
+.line[ltype*=invite],
+.line[ltype*=debug],
+.line[ltype*=rawhtml],
+.line[ltype*=dccfiletransfer] {
+	color: #7ea2b4;
+	z-index: 190;
+	background-color: #1f292e;
+	position: relative;
+}
+
+/* @end */
+
+/* @group Message of the Day (MOTD)
+ *
+ * 720, 721, 722 are used by ShadowIRCd for Oper MOTD.
+ * 372, 375, 376 are normal MOTD shared by several IRCds.
+ */
+
+.line[command="372"],
+.line[command="721"] {
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.line[command="375"],
+.line[command="720"] { /* Start. */
+	padding-top: 2px;
+	padding-bottom: 3px;
+}
+
+.line[command="376"],
+.line[command="722"] { /* End. */
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.line[command="372"] .message,
+.line[command="375"] .message,
+.line[command="376"] .message
+.line[command="720"] .message,
+.line[command="721"] .message,
+.line[command="722"] .message {
+	/* font-family: "EspressoMono-Regular", "Menlo" !important; */
+}
+
+/* @end */
+
+/* @group General Events */
+
+.line[ltype*=join],
+.line[ltype*=part],
+.line[ltype*=quit],
+.line[ltype*=nick],
+.line[ltype*=mode],
+.line[ltype*=topic],
+.line[ltype*=website] {
+	color: #5a7b8c;
+	background-color: rgba(31, 41, 46, 0.1);
+}
+
+/* Slightly more interesting events */
+.line[ltype*=kick],
+.line[ltype*=kill],
+.line[ltype*=mode][command=mode] {
+	color: #7ea2b4;
+	background-color: rgba(31, 41, 46, 0.1);
+}
+
+/* @group Event Indicators */
+
+div[ltype*=join] .message:before {
+	content: "→";
+	color: #568c3b;
+}
+
+div[ltype*=kick] .message:before,
+div[ltype*=part] .message:before,
+div[ltype*=quit] .message:before {
+	content: "←";
+	color: #d22d72;
+}
+
+div[ltype*=nick] .message:before {
+	content:"◦";
+	color: #2d8f6f;
+}
+
+/* @end */
+
+/* @end */
+
+/* @group Own Messages */
+
+.sender[mtype*=myself] {
+	color: #257fad;
+}
+
+div[mtype*=myself] {
+	background-color: rgba(37, 127, 173, 0.1);
+}
+
+/* @end */
+
+/* @group Nickname Colors */
+
+/* Leave out #257fad, it's the color of the own nick */
+
+.sender[mtype*=normal][colornumber='0'],
+.inline_nickname[colornumber='0'] {
+	color: #d22d72;
+}
+
+.sender[mtype*=normal][colornumber='1'],
+.inline_nickname[colornumber='1'] {
+	color: #935c25;
+}
+
+.sender[mtype*=normal][colornumber='2'],
+.inline_nickname[colornumber='2'] {
+	color: #8a8a0f;
+}
+
+.sender[mtype*=normal][colornumber='3'],
+.inline_nickname[colornumber='3'] {
+	color: #568c3b;
+}
+
+.sender[mtype*=normal][colornumber='4'],
+.inline_nickname[colornumber='4'] {
+	color: #2d8f6f;
+}
+
+.sender[mtype*=normal][colornumber='5'],
+.inline_nickname[colornumber='5'] {
+	color: #5d5db1;
+}
+
+.sender[mtype*=normal][colornumber='6'],
+.inline_nickname[colornumber='6'] {
+	color: #b72dd2;
+}
+
+/* Shuffle RGB values to get some more colors which are similar / harmonic */
+
+/* Swap R <-> B */
+
+.sender[mtype*=normal][colornumber='7'],
+.inline_nickname[colornumber='7'] {
+	color: rgb(114, 45, 210);
+}
+
+.sender[mtype*=normal][colornumber='8'],
+.inline_nickname[colornumber='8'] {
+	color: rgb(37, 92, 147);
+}
+
+.sender[mtype*=normal][colornumber='9'],
+.inline_nickname[colornumber='9'] {
+	color: rgb(15, 138, 138);
+}
+
+.sender[mtype*=normal][colornumber='10'],
+.inline_nickname[colornumber='10'] {
+	color: rgb(59, 140, 86);
+}
+
+.sender[mtype*=normal][colornumber='11'],
+.inline_nickname[colornumber='11'] {
+	color: rgb(111, 143, 45);
+}
+
+.sender[mtype*=normal][colornumber='12'],
+.inline_nickname[colornumber='12'] {
+	color: rgb(173, 127, 37);
+}
+
+.sender[mtype*=normal][colornumber='13'],
+.inline_nickname[colornumber='13'] {
+	color: rgb(177, 93, 93);
+}
+
+.sender[mtype*=normal][colornumber='14'],
+.inline_nickname[colornumber='14'] {
+	color: rgb(183, 45, 210);
+}
+
+/* Swap R <-> G */
+
+.sender[mtype*=normal][colornumber='15'],
+.inline_nickname[colornumber='15'] {
+	color: rgb(45, 210, 114);
+}
+
+.sender[mtype*=normal][colornumber='16'],
+.inline_nickname[colornumber='16'] {
+	color: rgb(92, 147, 37);
+}
+
+/* This, barely readable */
+.sender[mtype*=normal][colornumber='17'],
+.inline_nickname[colornumber='17'] {
+	color: rgb(138, 138, 15);
+}
+
+.sender[mtype*=normal][colornumber='18'],
+.inline_nickname[colornumber='18'] {
+	color: rgb(140, 86, 59);
+}
+
+.sender[mtype*=normal][colornumber='19'],
+.inline_nickname[colornumber='19'] {
+	color: rgb(143, 45, 111);
+}
+
+.sender[mtype*=normal][colornumber='20'],
+.inline_nickname[colornumber='20'] {
+	color: rgb(127, 37, 173);
+}
+
+.sender[mtype*=normal][colornumber='21'],
+.inline_nickname[colornumber='21'] {
+	color: rgb(93, 93, 177);
+}
+
+.sender[mtype*=normal][colornumber='22'],
+.inline_nickname[colornumber='22'] {
+	color: rgb(45, 183, 210);
+}
+
+/* Swap G <-> B */
+
+.sender[mtype*=normal][colornumber='23'],
+.inline_nickname[colornumber='23'] {
+	color: rgb(210, 114, 45);
+}
+
+.sender[mtype*=normal][colornumber='24'],
+.inline_nickname[colornumber='24'] {
+	color: rgb(147, 37, 92);
+}
+
+.sender[mtype*=normal][colornumber='25'],
+.inline_nickname[colornumber='25'] {
+	color: rgb(138, 15, 138);
+}
+
+.sender[mtype*=normal][colornumber='26'],
+.inline_nickname[colornumber='26'] {
+	color: rgb(86, 59, 140);
+}
+
+.sender[mtype*=normal][colornumber='27'],
+.inline_nickname[colornumber='27'] {
+	color: rgb(45, 111, 143);
+}
+
+.sender[mtype*=normal][colornumber='28'],
+.inline_nickname[colornumber='28'] {
+	color: rgb(37, 173, 127);
+}
+
+.sender[mtype*=normal][colornumber='29'],
+.inline_nickname[colornumber='29'] {
+	color: rgb(93, 177, 93);
+}
+
+.sender[mtype*=normal][colornumber='30'],
+.inline_nickname[colornumber='30'] {
+	color: rgb(183, 210, 45);
+}
+
+/* @end */
+
+/* @group mIRC Color Codes */
+
+/* @group Foreground Colors */
+.effect[color-number='0']  { color: #161b1d   !important; } /* White       */
+.effect[color-number='1']  { color: #ebf8ff   !important; } /* Black       */
+.effect[color-number='2']  { color: #257fad   !important; } /* Blue        */
+.effect[color-number='3']  { color: #568c3b   !important; } /* Green       */
+.effect[color-number='4']  { color: rgba(210, 45, 114, 0.8) !important; } /* Light Red   */
+.effect[color-number='5']  { color: #b72dd2   !important; } /* Brown       */
+.effect[color-number='6']  { color: #5d5db1   !important; } /* Purple      */
+.effect[color-number='7']  { color: #935c25   !important; } /* Orange      */
+.effect[color-number='8']  { color: #8a8a0f   !important; } /* Yellow      */
+.effect[color-number='9']  { color: rgba(86, 140, 59, 0.8) !important; } /* Light Green */
+.effect[color-number='10'] { color: #2d8f6f   !important; } /* Cyan        */
+.effect[color-number='11'] { color: rgba(45, 143, 111, 0.8) !important; } /* Light Cyan  */
+.effect[color-number='12'] { color: rgba(37, 127, 173, 0.8) !important; } /* Light Blue  */
+.effect[color-number='13'] { color: rgba(93, 93, 177, 0.8) !important; } /* Pink        */
+.effect[color-number='14'] { color: #7ea2b4   !important; } /* Gray        */
+.effect[color-number='15'] { color: #516d7b   !important; } /* Light Gray  */
+/* @end */
+
+/* @group Background Colors */
+.effect[bgcolor-number='0']  { background-color: #161b1d   !important;} /* White       */
+.effect[bgcolor-number='1']  { background-color: #ebf8ff   !important;} /* Black       */
+.effect[bgcolor-number='2']  { background-color: #257fad   !important;} /* Blue        */
+.effect[bgcolor-number='3']  { background-color: #568c3b   !important;} /* Green       */
+.effect[bgcolor-number='4']  { background-color: rgba(210, 45, 114, 0.8) !important;} /* Light Red   */
+.effect[bgcolor-number='5']  { background-color: #b72dd2   !important;} /* Brown       */
+.effect[bgcolor-number='6']  { background-color: #5d5db1   !important;} /* Purple      */
+.effect[bgcolor-number='7']  { background-color: #935c25   !important;} /* Orange      */
+.effect[bgcolor-number='8']  { background-color: #8a8a0f   !important;} /* Yellow      */
+.effect[bgcolor-number='9']  { background-color: rgba(86, 140, 59, 0.8) !important;} /* Light Green */
+.effect[bgcolor-number='10'] { background-color: #2d8f6f   !important;} /* Cyan        */
+.effect[bgcolor-number='11'] { background-color: rgba(45, 143, 111, 0.8) !important;} /* Light Cyan  */
+.effect[bgcolor-number='12'] { background-color: rgba(37, 127, 173, 0.8) !important;} /* Light Blue  */
+.effect[bgcolor-number='13'] { background-color: rgba(93, 93, 177, 0.8) !important;} /* Pink        */
+.effect[bgcolor-number='14'] { background-color: #7ea2b4   !important;} /* Gray        */
+.effect[bgcolor-number='15'] { background-color: #516d7b   !important;} /* Light Gray  */
+/* @end */
+
+/* @end */
+
+/* vim: set foldmethod=marker foldmarker=@group,@end nofoldenable: */

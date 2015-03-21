@@ -1,0 +1,591 @@
+/**
+ * Base16 Default Dark
+ * @author: Chris Kempson (http://chriskempson.com)
+ */
+
+/* @group Basic Body Structure */
+
+* {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	word-wrap: break-word;
+}
+
+body {
+	color: #f8f8f8;
+	height: 100%;
+	z-index: 100;
+	font-size: 12px;
+	overflow: hidden;
+	overflow-y: visible;
+	background-color: #181818;
+}
+
+#body_home {
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	z-index: 100;
+
+	position: absolute;
+	opacity: 0; /* Set by JavaScript */
+	-webkit-transition: opacity 0.8s linear;
+}
+
+body[viewtype=channel] div#body_home {
+	max-height: 96.5%;
+}
+
+.line {
+	padding: 2px 5px 2px 5px;
+	clear: both;
+}
+
+.sender {
+	cursor: pointer;
+	font-weight: 700;
+}
+
+body[dir=rtl] .sender {
+	display: inline-block;
+}
+
+/* @end */
+
+/* @group Misc */
+
+#loading_screen {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -11px;
+	margin-left: -150px;
+	width: 300px;
+	height: 21px;
+	font-size: 18px;
+	background: #282828;
+	border: 1px solid #383838;
+	border-radius: 5px;
+	padding: 5px;
+	padding-left: 10px;
+	opacity: 1; /* Set by JavaScript */
+	-webkit-transition: opacity 0.8s linear;
+	text-align: center;
+}
+
+.encryptionLock img {
+	float: right;
+	margin: 0;
+	padding: 0;
+	height: 11px;
+	margin-top: 2px;
+	padding-left: 10px;
+}
+
+/* @end */
+
+/* @group Time */
+
+.time {
+	color: #585858;
+	white-space: nowrap;
+}
+
+body[dir=rtl] .time {
+	padding-left: 0.4em;
+	display: inline-block;
+}
+
+/* @end */
+
+/* @group Links */
+
+a {
+	color: #7cafc2;
+	border-color: #7cafc2;
+	text-decoration: none;
+	border-bottom: dotted 1px;
+}
+
+a:hover {
+	color: #ba8baf;
+	border-color: #ba8baf;
+}
+
+/* @end */
+
+/* @group Topic Bar */
+
+#topic_bar {
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 400;
+	opacity: 0; /* Set by JavaScript */
+	color: #d8d8d8;
+	position: fixed;
+	padding: 2px 0.5em 3px;
+	background-color: rgba(56, 56, 56, 0.95);
+	-webkit-transition: opacity 0.8s linear;
+	-webkit-font-smoothing: subpixel-antialiased;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+/* Topic bar hover additions contributed with permission from the project:
+ * https://github.com/hbang/Simplified-Light-Modifications
+ */
+
+#topic_bar:hover {
+	overflow: visible;
+	white-space: normal;
+}
+
+/* @end */
+
+/* @group Images */
+
+.inlineImageCell {
+	overflow: auto;
+	display: block;
+	margin-top: 5px;
+	margin-bottom: 2px;
+}
+
+.inlineImageCell .image {
+	display: inline-block;
+	float: left;
+	margin-right: 15px;
+	margin-left: 10px;
+	min-width: 40px;
+	max-width: 90%;
+}
+
+.inlineImageCell .closeButton {
+	cursor: pointer;
+	border-radius: 5px;
+	border: 2px solid #383838;
+	color: #d8d8d8;
+	display: inline-block;
+	line-height: 14px;
+	font-size: 15px;
+	font-family: "Helvetica Neue" !important;
+	text-indent: 7px;
+	width: 16px;
+	height: 16px;
+	float: left;
+	padding-right: 7px;
+	padding-left: 0px;
+}
+
+html[systemversion^="10.9"] .inlineImageCell .closeButton,
+html[systemversion^="10.8"] .inlineImageCell .closeButton {
+	line-height: 13px;
+}
+
+/* @end */
+
+/* @group Separating History */
+
+div[id=mark] {
+	clear: both;
+	position: relative;
+	z-index: 295;
+	margin-top: -1px;
+	border-bottom: 1px dashed;
+	border-color: #ab4642;
+	-webkit-transition: 0.2s linear;
+}
+
+.historic {
+	opacity: 0.5;
+}
+
+/* @end */
+
+/* @group NOTICE / CTCP / WALLOPS */
+
+.line[ltype*=ctcp],
+.line[ltype*=notice],
+.line[ltype*=wallops] {
+	color: #f7ca88;
+	z-index: 191;
+	background-color: rgba(247, 202, 136, 0.1);
+	position: relative;
+}
+
+/* @end */
+
+/* @group Selected User */
+
+.line[ltype*=privmsg]:not(.selectedUser),
+.line[ltype*=action]:not(.selectedUser) {
+	transition: background-color 0.5s;
+}
+
+.line.selectedUser[highlight=false] {
+	transition: background-color 0.5s;
+	z-index: 190;
+	position: relative;
+	background-color: rgba(220, 150, 86, 0.1);
+}
+
+/* @end */
+
+/* @group PRIVMSG */
+
+.line[ltype*=privmsg][highlight=true],
+.line[ltype*=action][highlight=true] {
+	z-index: 191;
+	position: relative;
+	font-weight: normal;
+	background-color: rgba(171, 70, 66, 0.1);
+}
+
+div[ltype*=privmsg] .sender {
+	white-space: pre-wrap;
+}
+
+/* @end */
+
+/* @group ACTION */
+
+div[ltype*=action] .sender:before {
+	content: "•";
+}
+
+body[dir=ltr] div[ltype*=action] .sender:before {
+	margin-right: 0.4em;
+}
+
+body[dir=rtl] div[ltype*=action] .sender:before {
+	margin-left: 0.4em;
+}
+
+div[ltype*=action] .sender:after {
+	content: "";
+}
+
+/* @end */
+
+/* @group DEBUG / INVITE */
+
+.line[ltype*=invite],
+.line[ltype*=debug],
+.line[ltype*=rawhtml],
+.line[ltype*=dccfiletransfer] {
+	color: #d8d8d8;
+	z-index: 190;
+	background-color: #282828;
+	position: relative;
+}
+
+/* @end */
+
+/* @group Message of the Day (MOTD)
+ *
+ * 720, 721, 722 are used by ShadowIRCd for Oper MOTD.
+ * 372, 375, 376 are normal MOTD shared by several IRCds.
+ */
+
+.line[command="372"],
+.line[command="721"] {
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.line[command="375"],
+.line[command="720"] { /* Start. */
+	padding-top: 2px;
+	padding-bottom: 3px;
+}
+
+.line[command="376"],
+.line[command="722"] { /* End. */
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.line[command="372"] .message,
+.line[command="375"] .message,
+.line[command="376"] .message
+.line[command="720"] .message,
+.line[command="721"] .message,
+.line[command="722"] .message {
+	/* font-family: "EspressoMono-Regular", "Menlo" !important; */
+}
+
+/* @end */
+
+/* @group General Events */
+
+.line[ltype*=join],
+.line[ltype*=part],
+.line[ltype*=quit],
+.line[ltype*=nick],
+.line[ltype*=mode],
+.line[ltype*=topic],
+.line[ltype*=website] {
+	color: #585858;
+	background-color: rgba(40, 40, 40, 0.1);
+}
+
+/* Slightly more interesting events */
+.line[ltype*=kick],
+.line[ltype*=kill],
+.line[ltype*=mode][command=mode] {
+	color: #d8d8d8;
+	background-color: rgba(40, 40, 40, 0.1);
+}
+
+/* @group Event Indicators */
+
+div[ltype*=join] .message:before {
+	content: "→";
+	color: #a1b56c;
+}
+
+div[ltype*=kick] .message:before,
+div[ltype*=part] .message:before,
+div[ltype*=quit] .message:before {
+	content: "←";
+	color: #ab4642;
+}
+
+div[ltype*=nick] .message:before {
+	content:"◦";
+	color: #86c1b9;
+}
+
+/* @end */
+
+/* @end */
+
+/* @group Own Messages */
+
+.sender[mtype*=myself] {
+	color: #7cafc2;
+}
+
+div[mtype*=myself] {
+	background-color: rgba(124, 175, 194, 0.1);
+}
+
+/* @end */
+
+/* @group Nickname Colors */
+
+/* Leave out #7cafc2, it's the color of the own nick */
+
+.sender[mtype*=normal][colornumber='0'],
+.inline_nickname[colornumber='0'] {
+	color: #ab4642;
+}
+
+.sender[mtype*=normal][colornumber='1'],
+.inline_nickname[colornumber='1'] {
+	color: #dc9656;
+}
+
+.sender[mtype*=normal][colornumber='2'],
+.inline_nickname[colornumber='2'] {
+	color: #f7ca88;
+}
+
+.sender[mtype*=normal][colornumber='3'],
+.inline_nickname[colornumber='3'] {
+	color: #a1b56c;
+}
+
+.sender[mtype*=normal][colornumber='4'],
+.inline_nickname[colornumber='4'] {
+	color: #86c1b9;
+}
+
+.sender[mtype*=normal][colornumber='5'],
+.inline_nickname[colornumber='5'] {
+	color: #ba8baf;
+}
+
+.sender[mtype*=normal][colornumber='6'],
+.inline_nickname[colornumber='6'] {
+	color: #a16946;
+}
+
+/* Shuffle RGB values to get some more colors which are similar / harmonic */
+
+/* Swap R <-> B */
+
+.sender[mtype*=normal][colornumber='7'],
+.inline_nickname[colornumber='7'] {
+	color: rgb(66, 70, 171);
+}
+
+.sender[mtype*=normal][colornumber='8'],
+.inline_nickname[colornumber='8'] {
+	color: rgb(86, 150, 220);
+}
+
+.sender[mtype*=normal][colornumber='9'],
+.inline_nickname[colornumber='9'] {
+	color: rgb(136, 202, 247);
+}
+
+.sender[mtype*=normal][colornumber='10'],
+.inline_nickname[colornumber='10'] {
+	color: rgb(108, 181, 161);
+}
+
+.sender[mtype*=normal][colornumber='11'],
+.inline_nickname[colornumber='11'] {
+	color: rgb(185, 193, 134);
+}
+
+.sender[mtype*=normal][colornumber='12'],
+.inline_nickname[colornumber='12'] {
+	color: rgb(194, 175, 124);
+}
+
+.sender[mtype*=normal][colornumber='13'],
+.inline_nickname[colornumber='13'] {
+	color: rgb(175, 139, 186);
+}
+
+.sender[mtype*=normal][colornumber='14'],
+.inline_nickname[colornumber='14'] {
+	color: rgb(161, 105, 70);
+}
+
+/* Swap R <-> G */
+
+.sender[mtype*=normal][colornumber='15'],
+.inline_nickname[colornumber='15'] {
+	color: rgb(70, 171, 66);
+}
+
+.sender[mtype*=normal][colornumber='16'],
+.inline_nickname[colornumber='16'] {
+	color: rgb(150, 220, 86);
+}
+
+/* This, barely readable */
+.sender[mtype*=normal][colornumber='17'],
+.inline_nickname[colornumber='17'] {
+	color: rgb(202, 247, 136);
+}
+
+.sender[mtype*=normal][colornumber='18'],
+.inline_nickname[colornumber='18'] {
+	color: rgb(181, 161, 108);
+}
+
+.sender[mtype*=normal][colornumber='19'],
+.inline_nickname[colornumber='19'] {
+	color: rgb(193, 134, 185);
+}
+
+.sender[mtype*=normal][colornumber='20'],
+.inline_nickname[colornumber='20'] {
+	color: rgb(175, 124, 194);
+}
+
+.sender[mtype*=normal][colornumber='21'],
+.inline_nickname[colornumber='21'] {
+	color: rgb(139, 186, 175);
+}
+
+.sender[mtype*=normal][colornumber='22'],
+.inline_nickname[colornumber='22'] {
+	color: rgb(105, 161, 70);
+}
+
+/* Swap G <-> B */
+
+.sender[mtype*=normal][colornumber='23'],
+.inline_nickname[colornumber='23'] {
+	color: rgb(171, 66, 70);
+}
+
+.sender[mtype*=normal][colornumber='24'],
+.inline_nickname[colornumber='24'] {
+	color: rgb(220, 86, 150);
+}
+
+.sender[mtype*=normal][colornumber='25'],
+.inline_nickname[colornumber='25'] {
+	color: rgb(247, 136, 202);
+}
+
+.sender[mtype*=normal][colornumber='26'],
+.inline_nickname[colornumber='26'] {
+	color: rgb(161, 108, 181);
+}
+
+.sender[mtype*=normal][colornumber='27'],
+.inline_nickname[colornumber='27'] {
+	color: rgb(134, 185, 193);
+}
+
+.sender[mtype*=normal][colornumber='28'],
+.inline_nickname[colornumber='28'] {
+	color: rgb(124, 194, 175);
+}
+
+.sender[mtype*=normal][colornumber='29'],
+.inline_nickname[colornumber='29'] {
+	color: rgb(186, 175, 139);
+}
+
+.sender[mtype*=normal][colornumber='30'],
+.inline_nickname[colornumber='30'] {
+	color: rgb(161, 70, 105);
+}
+
+/* @end */
+
+/* @group mIRC Color Codes */
+
+/* @group Foreground Colors */
+.effect[color-number='0']  { color: #181818   !important; } /* White       */
+.effect[color-number='1']  { color: #f8f8f8   !important; } /* Black       */
+.effect[color-number='2']  { color: #7cafc2   !important; } /* Blue        */
+.effect[color-number='3']  { color: #a1b56c   !important; } /* Green       */
+.effect[color-number='4']  { color: rgba(171, 70, 66, 0.8) !important; } /* Light Red   */
+.effect[color-number='5']  { color: #a16946   !important; } /* Brown       */
+.effect[color-number='6']  { color: #ba8baf   !important; } /* Purple      */
+.effect[color-number='7']  { color: #dc9656   !important; } /* Orange      */
+.effect[color-number='8']  { color: #f7ca88   !important; } /* Yellow      */
+.effect[color-number='9']  { color: rgba(161, 181, 108, 0.8) !important; } /* Light Green */
+.effect[color-number='10'] { color: #86c1b9   !important; } /* Cyan        */
+.effect[color-number='11'] { color: rgba(134, 193, 185, 0.8) !important; } /* Light Cyan  */
+.effect[color-number='12'] { color: rgba(124, 175, 194, 0.8) !important; } /* Light Blue  */
+.effect[color-number='13'] { color: rgba(186, 139, 175, 0.8) !important; } /* Pink        */
+.effect[color-number='14'] { color: #d8d8d8   !important; } /* Gray        */
+.effect[color-number='15'] { color: #383838   !important; } /* Light Gray  */
+/* @end */
+
+/* @group Background Colors */
+.effect[bgcolor-number='0']  { background-color: #181818   !important;} /* White       */
+.effect[bgcolor-number='1']  { background-color: #f8f8f8   !important;} /* Black       */
+.effect[bgcolor-number='2']  { background-color: #7cafc2   !important;} /* Blue        */
+.effect[bgcolor-number='3']  { background-color: #a1b56c   !important;} /* Green       */
+.effect[bgcolor-number='4']  { background-color: rgba(171, 70, 66, 0.8) !important;} /* Light Red   */
+.effect[bgcolor-number='5']  { background-color: #a16946   !important;} /* Brown       */
+.effect[bgcolor-number='6']  { background-color: #ba8baf   !important;} /* Purple      */
+.effect[bgcolor-number='7']  { background-color: #dc9656   !important;} /* Orange      */
+.effect[bgcolor-number='8']  { background-color: #f7ca88   !important;} /* Yellow      */
+.effect[bgcolor-number='9']  { background-color: rgba(161, 181, 108, 0.8) !important;} /* Light Green */
+.effect[bgcolor-number='10'] { background-color: #86c1b9   !important;} /* Cyan        */
+.effect[bgcolor-number='11'] { background-color: rgba(134, 193, 185, 0.8) !important;} /* Light Cyan  */
+.effect[bgcolor-number='12'] { background-color: rgba(124, 175, 194, 0.8) !important;} /* Light Blue  */
+.effect[bgcolor-number='13'] { background-color: rgba(186, 139, 175, 0.8) !important;} /* Pink        */
+.effect[bgcolor-number='14'] { background-color: #d8d8d8   !important;} /* Gray        */
+.effect[bgcolor-number='15'] { background-color: #383838   !important;} /* Light Gray  */
+/* @end */
+
+/* @end */
+
+/* vim: set foldmethod=marker foldmarker=@group,@end nofoldenable: */
