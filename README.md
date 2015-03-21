@@ -9,13 +9,13 @@ The styles are based on [Base16](https://github.com/chriskempson/base16) by [chr
 
 Install the files according to the [Styles Documentation of Textual](http://www.codeux.com/textual/wiki/Styles.wiki)
 
-1. Clone the repository and switch into it:
+Clone the repository and switch into it:
 ```sh
 git clone https://github.com/FroZnShiva/base16-textual
 cd base16-textual
 ```
 
-2. Install a selected style, fe. **Base16 Default Light**
+Install a selected style, fe. **Base16 Default Light**
 ```sh
 cp -R styles/Base16\ Default\ Light ~/Library/Group\ Containers/8482Q6EPL6.com.codeux.irc.textual/Library/Application\ Support/Textual/Styles/
 ```
@@ -24,7 +24,7 @@ Alternatively you can install all styles at once, with:
 cp -R styles/* ~/Library/Group\ Containers/8482Q6EPL6.com.codeux.irc.textual/Library/Application\ Support/Textual/Styles/
 ```
 
-3. In the Preferences of Textual go to *Styles* and select **Base16 Default Light**.
+In the Preferences of Textual go to *Styles* and select **Base16 Default Light**.
 
 ## Styles
 
