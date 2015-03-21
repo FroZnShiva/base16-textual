@@ -3,7 +3,7 @@
 ## About
 
 This is a collection of styles for the [Textual IRC client](http://www.codeux.com/textual/).
-The styles are based on [Base16](https://github.com/chriskempson/base-16) by [chriskempson](https://github.com/chriskempson) and the default *Simplified* style bundled with Textual.
+The styles are based on [Base16](https://github.com/chriskempson/base16) by [chriskempson](https://github.com/chriskempson) and the default *Simplified* style bundled with Textual.
 
 ## Installation
 
