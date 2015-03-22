@@ -549,8 +549,8 @@ div[mtype*=myself] {
 /* @group mIRC Color Codes */
 
 /* @group Foreground Colors */
-.effect[color-number='0']  { color: #2f1e2e   !important; } /* White       */
-.effect[color-number='1']  { color: #e7e9db   !important; } /* Black       */
+.effect[color-number='0']  { color: #e7e9db   !important; } /* White       */
+.effect[color-number='1']  { color: #2f1e2e   !important; } /* Black       */
 .effect[color-number='2']  { color: #06b6ef   !important; } /* Blue        */
 .effect[color-number='3']  { color: #48b685   !important; } /* Green       */
 .effect[color-number='4']  { color: rgba(239, 97, 85, 0.8) !important; } /* Light Red   */
@@ -563,13 +563,13 @@ div[mtype*=myself] {
 .effect[color-number='11'] { color: rgba(91, 196, 191, 0.8) !important; } /* Light Cyan  */
 .effect[color-number='12'] { color: rgba(6, 182, 239, 0.8) !important; } /* Light Blue  */
 .effect[color-number='13'] { color: rgba(129, 91, 164, 0.8) !important; } /* Pink        */
-.effect[color-number='14'] { color: #a39e9b   !important; } /* Gray        */
-.effect[color-number='15'] { color: #4f424c   !important; } /* Light Gray  */
+.effect[color-number='14'] { color: #4f424c   !important; } /* Gray        */
+.effect[color-number='15'] { color: #a39e9b   !important; } /* Light Gray  */
 /* @end */
 
 /* @group Background Colors */
-.effect[bgcolor-number='0']  { background-color: #2f1e2e   !important;} /* White       */
-.effect[bgcolor-number='1']  { background-color: #e7e9db   !important;} /* Black       */
+.effect[bgcolor-number='0']  { background-color: #e7e9db   !important;} /* White       */
+.effect[bgcolor-number='1']  { background-color: #2f1e2e   !important;} /* Black       */
 .effect[bgcolor-number='2']  { background-color: #06b6ef   !important;} /* Blue        */
 .effect[bgcolor-number='3']  { background-color: #48b685   !important;} /* Green       */
 .effect[bgcolor-number='4']  { background-color: rgba(239, 97, 85, 0.8) !important;} /* Light Red   */
@@ -582,8 +582,8 @@ div[mtype*=myself] {
 .effect[bgcolor-number='11'] { background-color: rgba(91, 196, 191, 0.8) !important;} /* Light Cyan  */
 .effect[bgcolor-number='12'] { background-color: rgba(6, 182, 239, 0.8) !important;} /* Light Blue  */
 .effect[bgcolor-number='13'] { background-color: rgba(129, 91, 164, 0.8) !important;} /* Pink        */
-.effect[bgcolor-number='14'] { background-color: #a39e9b   !important;} /* Gray        */
-.effect[bgcolor-number='15'] { background-color: #4f424c   !important;} /* Light Gray  */
+.effect[bgcolor-number='14'] { background-color: #4f424c   !important;} /* Gray        */
+.effect[bgcolor-number='15'] { background-color: #a39e9b   !important;} /* Light Gray  */
 /* @end */
 
 /* @end */
