@@ -5,6 +5,8 @@
 This is a collection of styles for the [Textual IRC client](http://www.codeux.com/textual/).
 The styles are based on [Base16](https://github.com/chriskempson/base16) by [chriskempson](https://github.com/chriskempson) and the default *Simplified* style bundled with Textual.
 
+These styles are ready-to-use. If you want to customize them, see [base16-builder-textual](https://github.com/FroZnShiva/base16-builder-textual).
+
 ## Installation
 
 Install the files according to the [Styles Documentation of Textual](http://www.codeux.com/textual/wiki/Styles.wiki)
