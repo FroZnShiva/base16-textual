@@ -7,6 +7,8 @@ The styles are based on [Base16](https://github.com/chriskempson/base16) by [chr
 
 These styles are ready-to-use. If you want to customize them, see [base16-builder-textual](https://github.com/FroZnShiva/base16-builder-textual).
 
+If you like to report issues, please report them at  [base16-builder-textual/Issues](https://github.com/FroZnShiva/base16-builder-textual/issues).
+
 ## Installation
 
 Install the files according to the [Styles Documentation of Textual](http://www.codeux.com/textual/wiki/Styles.wiki)
